@@ -2,7 +2,7 @@ const connection = require('./connection');
 
 const getAll = async () => {
 const query = 'SELECT * FROM StoreManager';
-const [data] = connection.execute(query);
+const [data] = await connection.execute(query);
 return data;
 };
 
