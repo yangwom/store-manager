@@ -1,5 +1,5 @@
 const services = require('../services/productsServices');
-const status = require('../middlewares/status');
+const status = require('../status/status');
 
 const getAll = async (req, res, next) => {
  try {

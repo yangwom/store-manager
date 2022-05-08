@@ -1,4 +1,4 @@
-const status = require('./status');
+const status = require('../status/status');
 
 const errorMiddlewares = (err, req, res, _next) => {
 if (err.status) return res.status(err.status).json({ message: err.message });

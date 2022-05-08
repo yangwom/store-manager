@@ -1,5 +1,5 @@
 const getAllModel = require('../models/productsModel');
-const error = require('../middlewares/throwMenssage');
+const error = require('../status/status');
 
 const getAll = async () => {
 const data = await getAllModel.getAll();
