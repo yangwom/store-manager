@@ -8,6 +8,12 @@ if (!data.length) return [];
  return data;
 };
 
+const getById = async (id) => {
+const data = await getAllModel.getById(id);
+return data;
+};
+
 module.exports = {
     getAll,
+    getById,
 };
