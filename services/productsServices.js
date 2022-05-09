@@ -12,7 +12,7 @@ if (!data.length) return [];
 const getById = async (id) => {
 const data = await getAllModel.getById(id);
 
-if (!data) throw status.productNotFound;
+if (!data.length) throw status.productNotFound;
 
 return data;
 };
