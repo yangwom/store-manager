@@ -14,7 +14,7 @@ const data = await getAllModel.getById(id);
 
 if (!data.length) throw status.productNotFound;
 
-return data;
+return data[0];
 };
 
 module.exports = {
