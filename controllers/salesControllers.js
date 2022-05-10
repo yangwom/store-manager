@@ -9,3 +9,7 @@ try {
     next(err);
 }
 };
+
+module.exports = {
+    getAll,
+}
