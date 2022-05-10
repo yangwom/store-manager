@@ -12,9 +12,9 @@ return data;
 const getById = async (id) => {
 const data = await model.getById(id);
 
-if (!data.length) return status.productNotFound;
+if (!data.length) throw status.saleNotFound;
 
-return data[0];
+return data;
 };
 
 module.exports = {
