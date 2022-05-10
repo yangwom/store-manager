@@ -1,6 +1,8 @@
 const express = require('express');
+const controllers = require('../../controllers/salesControllers');
 
 const routerSales = express.Router();
 
-routerSales.get('/');
-routerSales.get('/:id');
+routerSales.get('/', controllers.getAll);
+
+module.exports = routerSales;
