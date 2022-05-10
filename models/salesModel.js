@@ -18,7 +18,7 @@ const getById = async (id) => {
     sp.product_id AS productId,
     sp.quantity
     FROM sales_products AS sp
-    JOIN sales AS sa ON sa.id = sp.sale_id WHERE id = ?`;
+    JOIN sales AS sa ON sa.id = sp.sale_id WHERE sa.id = ?`;
     const [data] = await connection.execute(query, [id]);
     return data;
 };
