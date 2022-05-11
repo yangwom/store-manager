@@ -6,8 +6,9 @@ const app = express();
 
 // não remova esse endpoint, é para o avaliador funcionar
 app.get('/', (_request, response) => {
-  response.send('oi');
+  response.send();
 });
+app.use(express.json());
 app.use(router);
 app.use(errorMiddleware);
 // não remova essa exportação, é para o avaliador funcionar
