@@ -21,7 +21,18 @@ try {
 }
 };
 
+const create = async (req, res, next) => {
+const { name, quantity } = req.body;
+try {
+    const data = await services.create(name, quantity);
+    return res.status(status.created).json(data);
+} catch (err) {
+    next(err);
+}
+};
+
 module.exports = {
     getAll,
     getById,
+    create,
 };
