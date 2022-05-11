@@ -8,5 +8,7 @@ routerProducts.get('/', controllers.getAll);
 routerProducts.get('/:id', controllers.getById);
 routerProducts.post('/', validateMiddleware.productMiddleware, 
 (req, res) => res.status(200).send('eitaaa'));
+routerProducts.put('/:id', validateMiddleware.productMiddleware, 
+(req, res) => res.status(200).send('eitaaa'));
 
 module.exports = routerProducts;

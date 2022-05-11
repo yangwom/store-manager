@@ -12,8 +12,8 @@ const productMiddleware = (req, res, next) => {
     switch (true) {
     case !name: return next({ status: status.badRequest, message: nameIsRequired });
     case name.length < 5: return next({ status: status.Unprocessa, message: characters }); 
+    case quantity < 1: return next({ status: status.Unprocessa, message: canNotLower1 });
     case !quantity: return next({ status: status.badRequest, message: quantityIsRequired });
-    case quantity <= 0: return next({ status: status.Unprocessa, message: canNotLower1 });
      default:
       next();
        }
