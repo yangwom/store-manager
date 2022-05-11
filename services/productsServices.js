@@ -29,12 +29,18 @@ const data = await model.create(name, quantity);
 return data;
 };
 
-const update = async (id) => {
-const data = await model.update(id);
+const update = async (id, name, quantity) => {
+const exists = await model.getById(id);
 
-if (!data) throw status.notFound;
+if (!exists[0]) throw status.productNotFound;
 
-return data;
+ await model.update(id, name, quantity);
+
+return {
+id, 
+name,
+quantity,
+};
 };
 
 module.exports = {

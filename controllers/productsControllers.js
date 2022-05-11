@@ -31,8 +31,20 @@ try {
 }
 };
 
+const update = async (req, res, next) => {
+const { id } = req.params;
+const { name, quantity } = req.body;
+try {
+    const data = await services.update(id, name, quantity);
+    return res.status(status.success).json(data);
+} catch (err) {
+    next(err);
+}
+};
+
 module.exports = {
     getAll,
     getById,
     create,
+    update,
 };
