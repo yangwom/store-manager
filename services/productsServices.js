@@ -2,7 +2,6 @@ const model = require('../models/productsModel');
 const status = require('../status/status');
 
 const getAll = async () => {
-    
 const data = await model.getAll();
 
 if (!data.length) return [];
@@ -11,7 +10,6 @@ if (!data.length) return [];
 };
 
 const getById = async (id) => {
-
 const data = await model.getById(id);
 
 if (!data.length) throw status.productNotFound;
@@ -20,7 +18,6 @@ return data[0];
 };
 
 const create = async (name, quantity) => {
-
 const productsAll = await model.getAll();
 
 const exists = productsAll.some((product) => (product.name === name));
@@ -33,7 +30,6 @@ return data;
 };
 
 const update = async (id) => {
-
 const data = await model.update(id);
 
 if (!data) throw status.notFound;
