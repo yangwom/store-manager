@@ -12,9 +12,9 @@ const [data] = await connection.execute(query, [id]);
 return data;
 };
 
-const create = (name, quantity) => {
+const create = async (name, quantity) => {
 const query = 'INSERT INTO products name, quantity values(?,?)';
-const data = connection.execute(query, [name, quantity]);
+const data = await connection.execute(query, [name, quantity]);
 return {
     id: data.insertId,
     name,

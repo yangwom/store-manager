@@ -17,7 +17,16 @@ if (!data.length) throw status.productNotFound;
 return data[0];
 };
 
+const create = async (name, quantity) => {
+const data = await getAllModel.create(name, quantity);
+
+if (!data) throw status.errorConflict;
+
+return data;
+};
+
 module.exports = {
     getAll,
     getById,
+    create,
 };
