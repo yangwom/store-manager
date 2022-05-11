@@ -22,9 +22,9 @@ return {
 };
 };
 
-const update = async (name, quantity) => {
+const update = async (id) => {
  const query = 'UPDATE products SET name = ?, quantity = ?';
- const [data] = await connection.execute(query, [name, quantity]);
+ const [data] = await connection.execute(query, [id]);
  return data;
 };
 

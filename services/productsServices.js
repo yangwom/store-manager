@@ -1,8 +1,9 @@
-const getAllModel = require('../models/productsModel');
+const model = require('../models/productsModel');
 const status = require('../status/status');
 
 const getAll = async () => {
-const data = await getAllModel.getAll();
+    
+const data = await model.getAll();
 
 if (!data.length) return [];
 
@@ -10,7 +11,8 @@ if (!data.length) return [];
 };
 
 const getById = async (id) => {
-const data = await getAllModel.getById(id);
+
+const data = await model.getById(id);
 
 if (!data.length) throw status.productNotFound;
 
@@ -18,13 +20,23 @@ return data[0];
 };
 
 const create = async (name, quantity) => {
-const productsAll = await getAllModel.getAll();
+
+const productsAll = await model.getAll();
 
 const exists = productsAll.some((product) => (product.name === name));
 
 if (exists) throw status.errorConflict;
 
-const data = await getAllModel.create(name, quantity);
+const data = await model.create(name, quantity);
+
+return data;
+};
+
+const update = async (id) => {
+
+const data = await model.update(id);
+
+if (!data) throw status.notFound;
 
 return data;
 };
@@ -33,4 +45,5 @@ module.exports = {
     getAll,
     getById,
     create,
+    update,
 };
