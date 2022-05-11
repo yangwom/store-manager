@@ -6,8 +6,7 @@ const routerProducts = express.Router();
 
 routerProducts.get('/', controllers.getAll);
 routerProducts.get('/:id', controllers.getById);
-routerProducts.post('/', validateMiddleware.productMiddleware, 
-(req, res) => res.status(200).send('eitaaa'));
+routerProducts.post('/', validateMiddleware.productMiddleware, controllers.create);
 routerProducts.put('/:id', validateMiddleware.productMiddleware, 
 (req, res) => res.status(200).send('eitaaa'));
 

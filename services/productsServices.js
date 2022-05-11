@@ -18,9 +18,13 @@ return data[0];
 };
 
 const create = async (name, quantity) => {
-const data = await getAllModel.create(name, quantity);
+const productsAll = await getAllModel.getAll();
 
-if (!data) throw status.errorConflict;
+const exists = productsAll.some((product) => (product.name === name));
+
+if (exists) throw status.errorConflict;
+
+const data = await getAllModel.create(name, quantity);
 
 return data;
 };
