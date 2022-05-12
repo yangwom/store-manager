@@ -4,6 +4,7 @@
   "description": "Simple CRUD to sales and products",
   "main": "index.js",
   "scripts": {
+    "cm": "cz",
     "posttest": "node ./test/restoreDb.js",
     "test": "jest --runInBand --testTimeout=60000",
     "test:mocha": "nyc --all --include models --include services --include controllers mocha test/unit/**/*.js --exit",
@@ -33,14 +34,20 @@
   },
   "devDependencies": {
     "chai": "^4.3.4",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint-config-trybe-backend": "^1.0.3",
+    "frisby": "^2.1.2",
+    "jest": "^26.4.1",
     "mocha": "^8.4.0",
     "mysql-import": "^5.0.21",
     "nodemon": "^2.0.4",
     "nyc": "^15.1.0",
     "sinon": "^11.1.1",
-    "frisby": "^2.1.2",
-    "jest": "^26.4.1",
     "supertest": "^6.2.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
