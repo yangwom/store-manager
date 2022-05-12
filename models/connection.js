@@ -9,3 +9,5 @@ database: process.env.MYSQL_DATABASE || 'StoreManager',
 });
 
 module.exports = connection;
+
+// o erro era aqui
