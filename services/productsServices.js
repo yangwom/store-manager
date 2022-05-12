@@ -44,9 +44,11 @@ quantity,
 };
 
 const deleteById = async (id) => {
-const data = await model.productDelete(id);
+const exists = await model.getById(id);
 
-if (!data) throw status.productNotFound;
+if (!exists[0]) throw status.productNotFound;
+
+const data = await model.productDelete(id);
 
 return data;
 };
