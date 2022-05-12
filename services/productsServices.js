@@ -43,9 +43,18 @@ quantity,
 };
 };
 
+const deleteById = async (id) => {
+const data = await model.productDelete(id);
+
+if (!data) throw status.productNotFound;
+
+return data;
+};
+
 module.exports = {
     getAll,
     getById,
     create,
     update,
+    deleteById,
 };
