@@ -42,9 +42,20 @@ try {
 }
 };
 
+const deleteById = async (req, res, next) => {
+const { id } = req.params;
+try {
+    const data = await services.deleteById(id);
+    return res.status(status.noContent).json(data);
+} catch (err) {
+    next(err);
+}
+};
+
 module.exports = {
     getAll,
     getById,
     create,
     update,
+    deleteById,
 };

@@ -1,5 +1,6 @@
 const success = 200;
 const created = 201;
+const noContent = 204;
 const notFound = 404;
 const badRequest = 400;
 const conflict = 409;
@@ -19,4 +20,5 @@ saleNotFound,
 Unprocessa,
 errorConflict,
 created,
+noContent,
 };
