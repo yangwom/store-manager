@@ -38,8 +38,7 @@ return {
 
 const updateById = async (id, productId, quantity) => {
 const query = 'UPDATE sales_products SET product_id = ?, quantity = ? WHERE sale_id = ?';
-const [data] = connection.execute(query, [productId, quantity, id]);
-return data;
+ await connection.execute(query, [productId, quantity, id]);
 };
 
 module.exports = {
