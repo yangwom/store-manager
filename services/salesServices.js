@@ -17,7 +17,20 @@ if (!data.length) throw status.saleNotFound;
 return data;
 };
 
+const createSales = async (array) => {
+    const { id } = await model.createSales();
+    await Promise.all(array.map(({ productId, quantity }) => model
+   .createSaleProduct(id, productId, quantity)));
+ return {
+     id,
+    itemsSold: [  
+    ...array,
+    ],
+    };
+};
+
 module.exports = {
 getAll,
 getById,
+createSales,
 };

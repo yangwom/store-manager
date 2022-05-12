@@ -20,7 +20,17 @@ try {
 }
 };
 
+const createSales = async (req, res, next) => {
+    try {
+        const data = await services.createSales(req.body);
+        return res.status(status.created).json(data);
+    } catch (err) {
+  next(err);
+    }
+};
+
 module.exports = {
     getAll,
     getById,
+    createSales,
 };
