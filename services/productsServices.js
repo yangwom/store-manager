@@ -4,8 +4,6 @@ const status = require('../status/status');
 const getAll = async () => {
 const data = await model.getAll();
 
-if (!data.length) return [];
-
  return data;
 };
 
