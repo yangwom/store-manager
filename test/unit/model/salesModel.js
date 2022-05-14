@@ -53,39 +53,39 @@ describe('testa a getAll do modelSales', () => {
         })
     })
 
-    describe('testa a função getByid da sales', async() => {
-      describe('testa sem vem um array', async() => {
-       const resultSales = [[
+    // describe('testa a função getByid da sales',() => {
+    //   describe('testa sem vem um array', () => {
+    //    const resultSales = [[
             
-            {
-                "saleId": 1,
-                "date": "2022-05-12T20:19:39.000Z",
-                "productId": 2,
-                "quantity": 7
-            },
-        ]]
+    //         {
+    //             "saleId": 1,
+    //             "date": "2022-05-12T20:19:39.000Z",
+    //             "productId": 2,
+    //             "quantity": 7
+    //         },
+    //     ]]
 
-        before(()=> {
-            sinon.stub(connection, 'execute').resolves(resultSales);
-        })
+    //     before(()=> {
+    //         sinon.stub(connection, 'execute').resolves(resultSales);
+    //     })
 
-        after(()=> {
-            connection.execute.restore()
-        })
+    //     after(()=> {
+    //         connection.execute.restore()
+    //     })
 
-      })
+    //   })
 
-      it('se retorna um array', async() => {
-        const data = await modelSales.getById(1)
+    // //   it('se retorna um array', async() => {
+    // //     const data = await modelSales.getById(1)
 
-        expect(data).to.be.an('array')
-      });
+    // //     expect(data).to.be.an('array')
+    // //   });
 
-      it('se existe um objeto dentro do array', async () => {
-          const [data] = await modelSales.getById(1)
+    // //   it('se existe um objeto dentro do array', async () => {
+    // //       const [data] = await modelSales.getById(1)
 
-          expect(data).to.be.an('object')
-      })
+    // //       expect(data).to.be.an('object')
+    // //   })
       
-    });
+    // });
 })
