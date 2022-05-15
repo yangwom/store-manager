@@ -39,9 +39,18 @@ const saleById = async (id, array) => {
   };
 };
 
+const deleteByid = async (id) => {
+  const exists = await model.getById(id);
+
+  if (!exists.length) throw status.saleNotFound;
+
+  await model.deleteByid(id);
+};
+
 module.exports = {
   getAll,
   getById,
   createSales,
   saleById,
+  deleteByid,
 };
